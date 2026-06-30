@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Your Name</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg: #F4F0E6;
+  --card: #FBF8F1;
+  --ink: #1C2A1E;
+  --ink-soft: rgba(28,42,30,0.7);
+  --orange: #D9601A;
+  --mustard: #B8841A;
+  --burgundy: #5C2A28;
+  --border: #DCD5C4;
+  --display: 'Luckiest Guy', cursive;
+  --sans: 'Inter', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.6;
+}
+
+a{color:inherit;text-decoration:none;}
+
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px;}
+
+/* nav */
+header.site{
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;background:var(--bg);z-index:50;
+}
+.navrow{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 0;
+}
+.logo{font-family:var(--display);filter:url(#rough-edge);font-size:22px;color:var(--ink);}
+.logo span{color:var(--orange);}
+nav.links{display:flex;gap:28px;font-size:14px;font-weight:600;}
+nav.links a{padding:4px 0;border-bottom:2px solid transparent;}
+nav.links a:hover, nav.links a.active{border-bottom-color:var(--orange);}
+
+/* hero */
+.hero{padding:72px 0 48px;}
+.eyebrow{
+  font-family:var(--mono);font-size:13px;letter-spacing:0.08em;
+  color:var(--mustard);font-weight:500;text-transform:uppercase;margin-bottom:14px;
+}
+h1.display{
+  font-family:var(--display);
+  filter:url(#rough-edge);
+  letter-spacing:0.01em;
+  font-size:clamp(40px,6vw,72px);
+  line-height:1.02;
+  color:var(--ink);
+  margin:0 0 20px;
+  max-width:780px;
+}
+h1.display .pop{color:var(--orange);}
+.lede{font-size:17px;color:var(--ink-soft);max-width:520px;margin-bottom:28px;}
+
+.btnrow{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;padding:12px 22px;border-radius:4px;font-weight:600;font-size:14px;
+  border:1.5px solid var(--ink);
+}
+.btn.solid{background:var(--ink);color:var(--bg);}
+.btn.solid:hover{background:var(--orange);border-color:var(--orange);}
+.btn.outline{background:transparent;color:var(--ink);}
+.btn.outline:hover{background:var(--ink);color:var(--bg);}
+
+/* torn divider */
+.torn{
+  height:26px;width:100%;
+  background:var(--bg);
+  -webkit-mask: repeating-linear-gradient(115deg, #000 0 14px, transparent 14px 22px);
+  mask: repeating-linear-gradient(115deg, #000 0 14px, transparent 14px 22px);
+  opacity:0.5;
+}
+.torn.card{ -webkit-mask-image: none; mask-image:none; }
+
+section{padding:56px 0;}
+section.alt{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+
+h2.section-title{
+  font-family:var(--display);
+  filter:url(#rough-edge);font-size:32px;color:var(--ink);margin:0 0 8px;
+}
+.section-sub{color:var(--ink-soft);font-size:15px;margin-bottom:32px;max-width:560px;}
+
+/* cards */
+.grid{display:grid;gap:18px;}
+.grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+@media(max-width:760px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr;}}
+
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:22px;transition:border-color .15s, transform .15s;
+}
+.card:hover{border-color:var(--orange);transform:translateY(-2px);}
+.tag{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--burgundy);font-weight:500;margin-bottom:10px;display:block;
+}
+.card h3{font-size:18px;margin:0 0 8px;font-weight:700;}
+.card p{font-size:13.5px;color:var(--ink-soft);margin:0 0 14px;}
+.pill-row{display:flex;gap:6px;flex-wrap:wrap;}
+.pill{
+  font-size:11px;background:#EFE6D8;color:var(--mustard);padding:4px 10px;border-radius:20px;font-weight:600;
+}
+.go{font-size:12.5px;color:var(--orange);font-weight:700;}
+
+/* underline signature */
+.signature{display:flex;gap:6px;margin:36px 0 0;}
+.signature span{height:5px;border-radius:3px;display:block;}
+.sig-1{width:60px;background:var(--orange);}
+.sig-2{width:24px;background:var(--mustard);}
+.sig-3{width:24px;background:var(--burgundy);}
+
+/* footer */
+footer{padding:40px 0;border-top:1px solid var(--border);font-size:13px;color:var(--ink-soft);}
+.foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+footer a{font-weight:600;color:var(--ink);}
+footer a:hover{color:var(--orange);}
+
+/* case study page */
+.kicker{font-family:var(--mono);font-size:12px;color:var(--mustard);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;}
+.case-block{max-width:680px;margin:0 auto 52px;}
+.case-block h2{font-size:22px;margin:0 0 12px;font-weight:700;}
+.case-block p{font-size:15.5px;color:var(--ink-soft);}
+.stat-row{display:flex;gap:14px;margin:18px 0;flex-wrap:wrap;}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 18px;min-width:140px;}
+.stat .num{font-size:22px;font-weight:700;color:var(--ink);}
+.stat .lbl{font-size:11.5px;color:var(--ink-soft);}
+.chart-frame{
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:16px;margin:20px 0;text-align:center;
+}
+.chart-frame img{max-width:100%;border-radius:6px;}
+.chart-caption{font-size:12.5px;color:var(--ink-soft);margin-top:8px;}
+.placeholder-chart{
+  height:220px;border:1.5px dashed var(--border);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink-soft);font-size:13px;font-family:var(--mono);
+}
+.callout{
+  background:#FBF0E6;border-left:3px solid var(--orange);border-radius:0 8px 8px 0;
+  padding:16px 20px;font-size:14.5px;margin:18px 0;
+}
+.callout.flag{background:#F7E8DF;border-left-color:var(--burgundy);}
+code.inline{font-family:var(--mono);font-size:13px;background:var(--card);padding:2px 6px;border-radius:4px;border:1px solid var(--border);}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute;">
+  <filter id="rough-edge">
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="11" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="4.5"/>
+  </filter>
+</svg>
+
+
+<header class="site">
+  <div class="wrap navrow">
+    <a href="index.html" class="logo">your<span>name</span>.work</a>
+    <nav class="links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="writing.html">Writing</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding:56px 0 28px;">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h1 class="display" style="font-size:clamp(32px,5.5vw,56px);">Hi, I'm<br><span class="pop">Your Name.</span></h1>
+    <p class="lede" style="max-width:560px;">Finance background, a habit of double-checking correlations, and an unreasonable amount of trust in diagnostic plots. I build models, then try hard to break them before anyone else does.</p>
+  </div>
+</section>
+
+<div class="torn"></div>
+
+<section>
+  <div class="wrap">
+    <div class="grid cols-2">
+      <div class="card">
+        <span class="tag">Tools</span>
+        <h3>What I work with</h3>
+        <p>R (regression, diagnostics, ggplot2) · Tableau · Excel/financial modeling · a healthy suspicion of anything with R² above 0.95 on eight data points.</p>
+      </div>
+      <div class="card">
+        <span class="tag">How I work</span>
+        <h3>Question first, chart second</h3>
+        <p>Every project here starts with something that surprised me, not a dataset I went looking for a story in. The chart is the receipt, not the headline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="tag">A running list</div>
+    <h2 class="section-title">Mistakes I caught myself making</h2>
+    <p class="section-sub">Not a highlight reel. The first-pass conclusions that didn't survive a second look — kept here on purpose.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3>"UPI and credit cards move together"</h3>
+        <p>r = 0.98 in raw levels. r = 0.11 once de-trended. Two things rising over time will almost always correlate — that's not the same as being related. Full breakdown in the <a href="project-upi.html" style="color:var(--orange);font-weight:700;">UPI project</a>.</p>
+      </div>
+      <div class="card" style="opacity:0.6;">
+        <h3>More to come</h3>
+        <p>This list grows as the project list does. If a finding doesn't survive the second look, it goes here instead of getting quietly dropped.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="card" style="max-width:520px;">
+      <span class="tag">Get in touch</span>
+      <h3>Let's talk data, not buzzwords</h3>
+      <p>Open to analyst roles, research opportunities, and people who want to argue about whether a correlation is actually real.</p>
+      <a href="mailto:hello@yourname.work" class="btn solid" style="margin-top:6px;">hello@yourname.work</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>© 2026 Your Name. Built with R, Tableau, and mild skepticism.</span>
+    <span><a href="projects.html">Projects</a> · <a href="writing.html">Writing</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
